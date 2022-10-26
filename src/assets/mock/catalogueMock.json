@@ -1,0 +1,37 @@
+[
+  {
+    "name": "Harry Potter à l'école des sorciers",
+    "description": "Livre de J.K. Rowling",
+    "price": 10,
+    "category": "Livre",
+    "image": "https://m.media-amazon.com/images/I/91urFS1eTlL.jpg"
+  },
+  {
+    "name": "Eragon",
+    "description": "Livre de Christopher Paolini",
+    "price": 12,
+    "category": "Livre",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/8/83/Christopher_Paolini%2C_Eragon_1.jpg"
+  },
+  {
+    "name": "Tara Duncan - Les sorceliers",
+    "description": "Livre de Sophie Audouin-Mamikonian",
+    "price": 8,
+    "category": "Livre",
+    "image": "https://m.media-amazon.com/images/I/71gAko8xMIL.jpg"
+  },
+  {
+    "name": "Le sanglot des cigales - Cycle des énigmes",
+    "description": "Visual novel de 07th Expansion",
+    "price": 15,
+    "category": "Jeu",
+    "image": "http://ecx.images-amazon.com/images/I/51JUvvxxqeL.jpg"
+  },
+  {
+    "name": "Le sanglot des cigales R - Cycle des réponses",
+    "description": "Visual novel de 07th Expansion",
+    "price": 15,
+    "category": "Jeu",
+    "image": "https://m.media-amazon.com/images/I/51XogHlOnmL._AC_.jpg"
+  }
+]

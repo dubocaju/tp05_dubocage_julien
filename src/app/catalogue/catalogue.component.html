@@ -1,0 +1,19 @@
+<div class="container">
+  <h2>Mon super catalogue</h2>
+  <ul class="media-list">
+    <li *ngFor="let product of products" class="media">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <div class="media-left">
+            <img class="media-object" src="{{product.image}}" alt="...">
+          </div>
+          <div class="media-body">
+            <h4 class="media-heading">{{product.name}}</h4>
+            <p>{{product.description}}</p>
+            <p>Catégorie : {{product.category}}</p>
+            <p>Prix : {{product.price}} €</p>
+          </div>
+        </div>
+      </div>
+  </ul>
+</div>
