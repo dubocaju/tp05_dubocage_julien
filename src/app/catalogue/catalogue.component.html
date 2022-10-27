@@ -1,5 +1,12 @@
 <div class="container">
   <h2>Mon super catalogue</h2>
+
+  <app-search
+    (reset)="OnReset()"
+    (search)="onSearch($event)"
+    (category)="onCategoryChange($event)">
+  </app-search>
+
   <ul class="media-list">
     <li *ngFor="let product of products" class="media">
       <div class="panel panel-default">

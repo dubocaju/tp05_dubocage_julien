@@ -13,6 +13,7 @@ import { FormInputDirective } from './shared/directives/form-input.directive';
 import { PasswordPipe } from './shared/pipes/password.pipe';
 import { PhonePipe } from './shared/pipes/phone.pipe';
 import { CatalogueComponent } from './catalogue/catalogue.component';
+import { SearchComponent } from './search/search.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { CatalogueComponent } from './catalogue/catalogue.component';
     FormInputDirective,
     PasswordPipe,
     PhonePipe,
-    CatalogueComponent
+    CatalogueComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,

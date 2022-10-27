@@ -1,0 +1,17 @@
+<div class="input-group">
+  <input [(ngModel)]="query" type="text" class="form-control" placeholder="Rechercher...">
+  <div class="input-group-btn">
+  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false">Catégorie <span class="caret"></span></button>
+        <ul class="dropdown-menu dropdown-menu-right">
+          <li (click)="clickCategory('Livre')"><a>Livre</a></li>
+          <li (click)="clickCategory('Jeu')"><a>Jeu</a></li>
+        </ul>
+    <button class="btn btn-primary" type="button" (click)="clickSearch()">
+      <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+        </button>
+    <button class="btn btn-danger" type="button" (click)="clickReset()">
+      <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+    </button>
+      </div>
+</div>
