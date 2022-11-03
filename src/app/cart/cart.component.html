@@ -1,14 +1,12 @@
 <div class="container">
-  <h2>Mon super catalogue</h2>
+  <h2>Mon super panier</h2>
 
-  <app-search
-    (reset)="OnReset()"
-    (search)="onSearch($event)"
-    (category)="onCategoryChange($event)">
-  </app-search>
+  <div *ngIf="(products$ | async)?.length == 0">
+    <p>Le panier est vide</p>
+  </div>
 
   <ul class="media-list">
-    <li *ngFor="let product of products" class="media">
+    <li *ngFor="let product of products$ | async" class="media">
       <div class="panel panel-default">
         <div class="panel-body">
           <div class="media-left">
@@ -19,6 +17,9 @@
             <p>{{product.description}}</p>
             <p>Catégorie : {{product.category}}</p>
             <p>Prix : {{product.price}} €</p>
+            <button (click)="removeProductFromCart(product)" type="button" class="btn btn-danger">
+              <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Supprimer du panier
+            </button>
           </div>
         </div>
       </div>

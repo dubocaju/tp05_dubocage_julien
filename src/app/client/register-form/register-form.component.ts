@@ -1,14 +1,14 @@
 import {Component} from '@angular/core';
-import {Client} from "../shared/entities/client";
+import {Client} from "../entities/client";
 import {Router} from "@angular/router";
-import {ClientService} from "../shared/services/client.service";
+import {ClientService} from "../services/client.service";
 
 @Component({
-  selector: 'app-client-form',
-  templateUrl: './client-form.component.html',
-  styleUrls: ['./client-form.component.css']
+  selector: 'app-register-form',
+  templateUrl: './register-form.component.html',
+  styleUrls: ['./register-form.component.css']
 })
-export class ClientFormComponent {
+export class RegisterFormComponent {
   model: Client;
 
   constructor(

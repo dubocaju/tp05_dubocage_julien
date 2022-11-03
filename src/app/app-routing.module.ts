@@ -1,14 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ClientFormComponent } from './client-form/client-form.component';
-import { ResultFormComponent } from "./result-form/result-form.component";
-import { CatalogueComponent } from "./catalogue/catalogue.component";
+import { HomeComponent } from "./home/home.component";
 
 const routes: Routes = [
-  { path: '', redirectTo: '/catalogue', pathMatch: 'full' },
-  { path: 'catalogue', component: CatalogueComponent },
-  { path: 'client-form', component: ClientFormComponent },
-  { path: 'result', component: ResultFormComponent },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: 'home', component: HomeComponent },
+  { path: 'client', loadChildren: () => import('./client/client.module').then(m => m.ClientModule) },
+  { path: 'catalogue', loadChildren: () => import('./catalogue/catalogue.module').then(m => m.CatalogueModule) },
+  { path: 'cart', loadChildren: () => import('./cart/cart.module').then(m => m.CartModule) }
 ];
 
 @NgModule({

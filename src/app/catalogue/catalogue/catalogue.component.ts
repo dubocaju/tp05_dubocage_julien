@@ -1,20 +1,25 @@
-import { Component } from '@angular/core';
-import { CatalogueService } from "../shared/services/catalogue.service";
-import { Product } from "../shared/entities/product";
+import { Component, OnInit } from '@angular/core';
+import { CatalogueService } from "../services/catalogue.service";
+import { Product } from "../../shared/entities/product";
 import { map } from "rxjs";
+import { Store } from "@ngxs/store";
+import { AddProduct } from "../../shared/actions/cart-action";
 
 @Component({
   selector: 'app-catalogue',
   templateUrl: './catalogue.component.html',
   styleUrls: ['./catalogue.component.css']
 })
-export class CatalogueComponent {
+export class CatalogueComponent implements OnInit {
   products: Product[] = [];
   category: string = '';
 
   constructor(
-    private catalogueService: CatalogueService
-  ) {
+    private catalogueService: CatalogueService,
+    private store: Store
+  ) { }
+
+  ngOnInit(): void {
     this.resetSearch();
   }
 
@@ -22,6 +27,10 @@ export class CatalogueComponent {
     this.catalogueService.getProducts().subscribe(
       products => this.products = products
     );
+  }
+
+  addProductToCart(product: Product) {
+    this.store.dispatch(new AddProduct(product));
   }
 
   onSearch(query: string) {
@@ -40,7 +49,6 @@ export class CatalogueComponent {
 
   OnReset() {
     this.resetSearch();
-
   }
 
 }

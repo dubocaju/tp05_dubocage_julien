@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Product } from "../entities/product";
-import { Observable, of } from "rxjs";
+import { Product } from "../../shared/entities/product";
+import { Observable } from "rxjs";
 import { HttpClient } from "@angular/common/http";
 import { environment } from '../../../environments/environment';
 

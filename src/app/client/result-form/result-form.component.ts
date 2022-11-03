@@ -1,7 +1,7 @@
-import {Component} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
-import {Client} from "../shared/entities/client";
-import {ClientService} from "../shared/services/client.service";
+import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Client } from "../entities/client";
+import { ClientService } from "../services/client.service";
 
 @Component({
   selector: 'app-result-form',

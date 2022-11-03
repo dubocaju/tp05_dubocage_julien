@@ -1,5 +1,5 @@
 {
-  "name": "tp03-dubocage-julien",
+  "name": "tp04-dubocage-julien",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -21,6 +21,7 @@
     "@angular/platform-browser": "^14.2.0",
     "@angular/platform-browser-dynamic": "^14.2.0",
     "@angular/router": "^14.2.0",
+    "@ngxs/store": "^3.7.5",
     "express": "^4.18.1",
     "path": "^0.12.7",
     "rxjs": "~7.5.0",

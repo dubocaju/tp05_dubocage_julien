@@ -1,0 +1,29 @@
+<div class="container">
+  <h2>Mon super catalogue</h2>
+
+  <app-search
+    (reset)="OnReset()"
+    (search)="onSearch($event)"
+    (category)="onCategoryChange($event)">
+  </app-search>
+
+  <ul class="media-list">
+    <li *ngFor="let product of products" class="media">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <div class="media-left">
+            <img class="media-object" src="{{product.image}}" alt="...">
+          </div>
+          <div class="media-body">
+            <h4 class="media-heading">{{product.name}}</h4>
+            <p>{{product.description}}</p>
+            <p>Catégorie : {{product.category}}</p>
+            <p>Prix : {{product.price}} €</p>
+            <button (click)="addProductToCart(product)" type="button" class="btn btn-default">
+              <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Ajouter au panier
+            </button>
+          </div>
+        </div>
+      </div>
+  </ul>
+</div>

@@ -1,0 +1,16 @@
+.container {
+  margin-bottom: 2.5em;
+}
+
+img {
+  max-width: 128px;
+  max-height: 128px;
+}
+
+.media-list {
+  margin-top: 2em;
+}
+
+.media-heading {
+  font-weight: bold;
+}
