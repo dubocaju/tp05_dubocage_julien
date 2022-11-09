@@ -16,8 +16,8 @@ export class CartComponent {
     this.products$ = this.store.select(state => state.cart.products);
   }
 
-  removeProductFromCart(product: Product) {
-    this.store.dispatch(new RemoveProduct(product));
+  removeProductFromCart(productIndex: Number) {
+    this.store.dispatch(new RemoveProduct(productIndex));
   }
 
 }

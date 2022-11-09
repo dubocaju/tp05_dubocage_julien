@@ -36,8 +36,7 @@ export class CartState {
     const state = getState();
     patchState({
       products: state.products.filter(
-        (p) => !(payload.id == p.id)
-      ),
+        (product, index) => index !== payload)
     });
   }
 

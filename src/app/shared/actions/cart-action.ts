@@ -7,5 +7,6 @@ export class AddProduct {
 
 export class RemoveProduct {
   static readonly type = '[Cart] RemoveProduct';
-  constructor(public payload: Product) {}
+
+  constructor(public payload: Number) {}
 }

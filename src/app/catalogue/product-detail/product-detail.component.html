@@ -1,0 +1,21 @@
+<div class="container">
+    <div *ngIf="product" class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">{{product.name}}</h3>
+      </div>
+      <div class="panel-body">
+        <div class="media-left">
+          <img class="media-object" src="{{product.image}}" alt="...">
+        </div>
+        <div class="media-body">
+          <p>{{product.description}}</p>
+          <p>Catégorie : {{product.category}}</p>
+          <p>Prix : {{product.price}} €</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus semper ultricies nunc, quis venenatis lectus accumsan vel. Ut leo arcu, ullamcorper eget eleifend et, interdum quis ipsum. Cras elementum lacus id rhoncus rhoncus. Etiam urna erat, auctor a nisl et, rutrum accumsan est. Fusce nec ultricies arcu. Cras blandit ex vel tincidunt lobortis.</p>
+          <button (click)="addProductToCart(product)" type="button" class="btn btn-primary">
+            <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Ajouter au panier
+          </button>
+        </div>
+      </div>
+    </div>
+</div>
