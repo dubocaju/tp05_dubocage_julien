@@ -10,7 +10,7 @@ import { FormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
 
 const routes: Routes = [
-  { path: 'register-form', component: RegisterFormComponent },
+  { path: 'register', component: RegisterFormComponent },
   { path: 'result', component: ResultFormComponent }
 ];
 

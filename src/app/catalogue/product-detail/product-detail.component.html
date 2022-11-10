@@ -11,7 +11,7 @@
           <p>{{product.description}}</p>
           <p>Catégorie : {{product.category}}</p>
           <p>Prix : {{product.price}} €</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus semper ultricies nunc, quis venenatis lectus accumsan vel. Ut leo arcu, ullamcorper eget eleifend et, interdum quis ipsum. Cras elementum lacus id rhoncus rhoncus. Etiam urna erat, auctor a nisl et, rutrum accumsan est. Fusce nec ultricies arcu. Cras blandit ex vel tincidunt lobortis.</p>
+          <p>{{product.summary}}</p>
           <button (click)="addProductToCart(product)" type="button" class="btn btn-primary">
             <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Ajouter au panier
           </button>

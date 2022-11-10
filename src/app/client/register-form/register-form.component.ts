@@ -20,6 +20,6 @@ export class RegisterFormComponent {
 
   onSubmit() {
     this.clientService.client = this.model
-    this.router.navigate(['/result']);
+    this.router.navigate(['/client/result']);
    }
 }
