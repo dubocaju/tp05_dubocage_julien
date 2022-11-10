@@ -1,58 +1,51 @@
 <div class="container">
   <h2>Mon super formulaire</h2>
-  <form #clientForm="ngForm" (ngSubmit)="onSubmit()">
+  <form [formGroup]="clientForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
       <label for="lastname">Nom</label>
-      <input appFormInput appCtrlData="^[A-Za-z-]{2,20}$" type="text" class="form-control" id="lastname"
-             [(ngModel)]="model.lastname"
-             name="lastname" placeholder="Boulon" required>
+      <input type="text" class="form-control" id="lastname" formControlName="lastname" placeholder="Boulon">
+
       <label for="firstname">Prénom</label>
-      <input appFormInput appCtrlData="^[A-Za-z-]{2,20}$" type="text" class="form-control" id="firstname"
-             [(ngModel)]="model.firstname"
-             name="firstname" placeholder="Jacques" required>
+      <input type="text" class="form-control" id="firstname" formControlName="firstname" placeholder="Jacques">
+
       <label for="email">Email</label>
-      <input appFormInput appCtrlData="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$" type="email" class="form-control" id="email"
-             [(ngModel)]="model.email" name="email"
-             placeholder="jboulon@gmail.com" required>
+      <input type="email" class="form-control" id="email" formControlName="email" placeholder="jboulon@gmail.com">
+
       <label for="login">Login</label>
-      <input appFormInput appCtrlData="\S{5}\S*" type="text" class="form-control" id="login" [(ngModel)]="model.login"
-             name="login" placeholder="jboulon"
-             required>
+      <input type="text" class="form-control" id="login" formControlName="login" placeholder="jboulon">
+
       <label for="password">Mot de passe</label>
-      <input appFormInput appCtrlData="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$" type="password"
-             class="form-control" id="password" [(ngModel)]="model.password"
-             name="password" placeholder="123456" required>
+      <input type="password" class="form-control" id="password" formControlName="password" placeholder="123456">
+
       <label for="phone">Numéro de téléphone</label>
       <div class="phone-container">
-        <input appFormInput appCtrlData="^([0-9]\s?){9,13}[0-9]$"
-               type="text" class="form-control" id="phone" [(ngModel)]="model.phone"
-               name="phone" placeholder="06 12 34 56 78" required>
-        <select class="form-control" id="locale" [(ngModel)]="model.locale" name="locale" required>
+        <input type="text" class="form-control" id="phone" formControlName="phone" placeholder="06 12 34 56 78">
+        <select class="form-control" id="locale" formControlName="locale">
           <option value="FR">FR 🇫🇷</option>
           <option value="US">US 🇺🇸</option>
         </select>
       </div>
+
       <label for="address">Adresse</label>
-      <input appFormInput appCtrlData="\S{5}\S*"
-             type="text" class="form-control" id="address" [(ngModel)]="model.address"
-             name="address" placeholder="11 rue des clarinettes" required>
+      <input type="text" class="form-control" id="address" formControlName="address" placeholder="11 rue des clarinettes">
+
       <label for="city">Ville</label>
-      <input appFormInput appCtrlData="^[A-Za-z-]{2,20}$" type="text" class="form-control" id="city"
-             [(ngModel)]="model.city" name="city" placeholder="Paris" required>
+      <input type="text" class="form-control" id="city" formControlName="city" placeholder="Paris">
+
       <label for="zip">Code postal</label>
-      <input appFormInput appCtrlData="^(?:0[1-9]|[1-8]\d|9[0-8])\d{3}$" type="text" class="form-control" id="zip"
-             [(ngModel)]="model.zip" name="zip" placeholder="75000" required>
+      <input type="text" class="form-control" id="zip" formControlName="zip" placeholder="75000">
+
       <label for="country">Pays</label>
-      <input appFormInput appCtrlData="^[A-Za-z-]{2,20}$" type="text" class="form-control" id="country"
-             [(ngModel)]="model.country"
-             name="country" placeholder="France" required>
+      <input type="text" class="form-control" id="country" formControlName="country" placeholder="France">
+
       <label for="civility">Civilité</label>
-      <select class="form-control" id="civility" [(ngModel)]="model.civility" name="civility" required>
+      <select class="form-control" id="civility" formControlName="civility">
         <option value="M">M</option>
         <option value="Mme">Mme</option>
         <option value="Other">Autre</option>
       </select>
-      <button type="submit" class="btn btn-success" [disabled]="!clientForm.form.valid">Submit</button>
+
+      <button type="submit" class="btn btn-success" [disabled]="!clientForm.valid">Valider</button>
     </div>
   </form>
 </div>
