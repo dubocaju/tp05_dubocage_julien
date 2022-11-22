@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "tp04_dubocage_julien": {
+    "tp05_dubocage_julien": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/tp04_dubocage_julien",
+            "outputPath": "dist/tp05_dubocage_julien",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -64,10 +64,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "tp04_dubocage_julien:build:production"
+              "browserTarget": "tp05_dubocage_julien:build:production"
             },
             "development": {
-              "browserTarget": "tp04_dubocage_julien:build:development"
+              "browserTarget": "tp05_dubocage_julien:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -75,7 +75,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "tp04_dubocage_julien:build"
+            "browserTarget": "tp05_dubocage_julien:build"
           }
         },
         "test": {
