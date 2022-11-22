@@ -8,14 +8,19 @@ import { FooterComponent } from './footer/footer.component';
 import { ClientService } from "./client/services/client.service";
 import { HomeComponent } from './home/home.component';
 import { CartState } from "./shared/states/cart-state";
-import { HttpClientModule } from "@angular/common/http";
+import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
+import { ApiHttpInterceptor } from "./shared/api-http-interceptor";
+import { LoginComponent } from './login/login.component';
+import { ReactiveFormsModule } from "@angular/forms";
+import { LoginService } from './shared/services/login.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    HomeComponent
+    HomeComponent,
+    LoginComponent
   ],
   imports: [
     NgxsModule.forRoot([
@@ -23,9 +28,16 @@ import { HttpClientModule } from "@angular/common/http";
     ]),
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
-  providers: [ClientService],
+  providers: [ClientService, LoginService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ApiHttpInterceptor,
+      multi: true,
+      deps: [LoginService]
+    }],
   bootstrap: [AppComponent]
 })
 export class AppModule {

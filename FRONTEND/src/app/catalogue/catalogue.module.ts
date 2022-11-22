@@ -5,6 +5,9 @@ import { CatalogueComponent } from "./catalogue/catalogue.component";
 import { SearchComponent } from "./search/search.component";
 import { FormsModule } from "@angular/forms";
 import { ProductDetailComponent } from "./product-detail/product-detail.component";
+import { HTTP_INTERCEPTORS } from "@angular/common/http";
+import { ApiHttpInterceptor } from "../shared/api-http-interceptor";
+import { CatalogueService } from "./services/catalogue.service";
 
 const routes: Routes = [
   { path: '', component: CatalogueComponent },
@@ -21,6 +24,15 @@ const routes: Routes = [
     CommonModule,
     RouterModule.forChild(routes),
     FormsModule,
+  ],
+  providers: [
+    CatalogueService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ApiHttpInterceptor,
+      multi: true,
+      deps: [CatalogueService]
+    }
   ]
 })
 export class CatalogueModule { }

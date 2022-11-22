@@ -1,0 +1,14 @@
+<div class="container">
+  <h2>Se connecter</h2>
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="login">Login</label>
+      <input type="text" class="form-control" id="login" formControlName="login" placeholder="jboulon">
+
+      <label for="password">Mot de passe</label>
+      <input type="password" class="form-control" id="password" formControlName="password" placeholder="123456">
+
+      <button type="submit" class="btn btn-success" [disabled]="!loginForm.valid">Valider</button>
+    </div>
+  </form>
+</div>

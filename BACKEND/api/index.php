@@ -11,25 +11,26 @@ const JWT_SECRET = "makey1234567";
 $app = AppFactory::create();
 
 $app->post('/api/login', function (Request $request, Response $response) {
-    return createJWT($request, $response);
+    $params = (array)$request->getParsedBody();
+    $login = $params['login'];
+    $password = $params['password'];
+
+    $jwt = createJWT($login, $password);
+    return $response->withHeader("Authorization", "Bearer $jwt");
 });
 
-function createJWT(Request $request, Response $response) : Response {
-    $params = (array)$request->getParsedBody();
-    $email = $params['email'];
-    $login = $params['login'];
-
+function createJWT($login, $password) : string
+{
     $issuedAt = time();
     $expirationTime = $issuedAt + 600;
     $payload = array(
-        'email' => $email,
         'login' => $login,
+        'password' => $password,
         'iat' => $issuedAt,
         'exp' => $expirationTime
     );
 
-    $token_jwt = JWT::encode($payload, JWT_SECRET);
-    return $response->withHeader("Authorization", "Bearer $token_jwt");
+    return JWT::encode($payload, JWT_SECRET);
 }
 
 $app->get('/api/products', function (Request $request, Response $response) {
@@ -71,7 +72,7 @@ $options = [
     "algorithm" => ["HS256"],
     "secret" => JWT_SECRET,
     "path" => ["/api"],
-    "ignore" => ["/api/hello", "/api/login", "/api/products", "/api/product/"],
+    "ignore" => ["/api/login"],
     "error" => function ($response) {
         $data = array('ERREUR' => 'Connexion', 'ERREUR' => 'JWT Non valide');
         $response = $response->withStatus(401);
@@ -79,7 +80,13 @@ $options = [
     }
 ];
 
-$app->add(new Tuupola\Middleware\CorsMiddleware);
+$app->addBodyParsingMiddleware();
 $app->add(new Tuupola\Middleware\JwtAuthentication($options));
+$app->add(new Tuupola\Middleware\CorsMiddleware([
+    "origin" => ["*"],
+    "methods" => ["GET", "POST", "PUT", "PATCH", "DELETE"],
+    "headers.allow" => ["Authorization", "Content-Type"],
+    "headers.expose" => ["Authorization"],
+]));
 
 $app->run();
