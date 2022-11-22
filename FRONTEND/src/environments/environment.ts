@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  catalogue: '/assets/mock/catalogueMock.json'
+  apiBaseUrl: 'http://localhost:8080/api'
 };
 
 /*

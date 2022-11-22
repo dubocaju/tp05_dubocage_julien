@@ -13,6 +13,10 @@ export class CatalogueService {
   env = environment;
 
   getProducts(): Observable<Product[]> {
-    return this.http.get<Product[]>(this.env.catalogue);
+    return this.http.get<Product[]>(this.env.apiBaseUrl + '/products');
+  }
+
+  getProduct(id: Number): Observable<Product> {
+    return this.http.get<Product>(this.env.apiBaseUrl + `/product/${id}`);
   }
 }
