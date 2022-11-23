@@ -1,4 +1,14 @@
 <div class="container">
+  <div *ngIf="loggedIn" class="alert alert-success alert-dismissible" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <strong>Connexion réussie</strong>
+  </div>
+
+  <div *ngIf="jwtError" class="alert alert-danger alert-dismissible" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <strong>Erreur : </strong> Vous devez vous connecter pour pouvoir accéder à cette page
+  </div>
+
   <h2>Se connecter</h2>
   <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
     <div class="form-group">

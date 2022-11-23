@@ -13,6 +13,7 @@ import { ApiHttpInterceptor } from "./shared/api-http-interceptor";
 import { LoginComponent } from './login/login.component';
 import { ReactiveFormsModule } from "@angular/forms";
 import { LoginService } from './shared/services/login.service';
+import { Router } from "@angular/router";
 
 @NgModule({
   declarations: [
@@ -36,7 +37,7 @@ import { LoginService } from './shared/services/login.service';
       provide: HTTP_INTERCEPTORS,
       useClass: ApiHttpInterceptor,
       multi: true,
-      deps: [LoginService]
+      deps: [Router]
     }],
   bootstrap: [AppComponent]
 })

@@ -39,11 +39,16 @@ export class ApiHttpInterceptor implements HttpInterceptor
         }
       },
       (error: HttpErrorResponse) => {
-        if (error.status === 401) {
-          this.router.navigate(['/']);
-          location.reload();
-        }
+        this.handleError(error);
       }
     ));
   }
+
+  private handleError(error: HttpErrorResponse) {
+    if (error.status === 401) {
+      console.log(this.router);
+      this.router.navigate(['/login'], { queryParams: { jwtError: true } });
+    }
+  }
+
 }
