@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
-import { ClientService } from "./client/services/client.service";
 import { HomeComponent } from './home/home.component';
 import { CartState } from "./shared/states/cart-state";
 import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
@@ -32,7 +31,7 @@ import { Router } from "@angular/router";
     HttpClientModule,
     ReactiveFormsModule
   ],
-  providers: [ClientService, LoginService,
+  providers: [LoginService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: ApiHttpInterceptor,

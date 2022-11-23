@@ -7,6 +7,7 @@ import { PasswordPipe } from "./pipes/password.pipe";
 import { PhonePipe } from "./pipes/phone.pipe";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
+import { ClientService } from "./services/client.service";
 
 const routes: Routes = [
   { path: 'register', component: RegisterFormComponent },
@@ -26,6 +27,9 @@ const routes: Routes = [
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule
+  ],
+  providers: [
+    ClientService
   ]
 })
 

@@ -50,7 +50,11 @@ export class RegisterFormComponent implements OnInit {
   }
 
   onSubmit() {
-    this.clientService.client = this.model;
-    this.router.navigate(['/client/result']);
+    this.clientService.register(this.model).subscribe(
+      client => {
+        this.clientService.client = client;
+        this.router.navigate(['/client/result']);
+      }
+    )
   }
 }
