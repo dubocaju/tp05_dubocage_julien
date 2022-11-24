@@ -78,10 +78,10 @@ function createClientFromBody($body): Client {
     $client->lastname = $body['lastname'];
     $client->email = $body['email'];
     $client->login = $body['login'];
-    $client->password = password_hash($body['password'], PASSWORD_DEFAULT);
+    $client->password = $body['password'];
     $client->phone = $body['phone'];
     $client->locale = $body['locale'];
-    $client->adress = $body['adress'];
+    $client->address = $body['address'];
     $client->city = $body['city'];
     $client->zip = $body['zip'];
     $client->country = $body['country'];
