@@ -30,8 +30,7 @@ const routes: Routes = [
     {
       provide: HTTP_INTERCEPTORS,
       useClass: ApiHttpInterceptor,
-      multi: true,
-      deps: [CatalogueService]
+      multi: true
     }
   ]
 })
