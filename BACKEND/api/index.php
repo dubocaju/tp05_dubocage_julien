@@ -4,6 +4,7 @@ use Psr\Http\Message\ServerRequestInterface as Request;
 use Slim\Factory\AppFactory;
 use Firebase\JWT\JWT;
 
+require "client.php";
 require __DIR__ . '/../vendor/autoload.php';
  
 const JWT_SECRET = "makey1234567";
@@ -11,9 +12,9 @@ const JWT_SECRET = "makey1234567";
 $app = AppFactory::create();
 
 $app->post('/api/login', function (Request $request, Response $response) {
-    $params = (array)$request->getParsedBody();
-    $login = $params['login'];
-    $password = $params['password'];
+    $body = (array)$request->getParsedBody();
+    $login = $body['login'];
+    $password = $body['password'];
 
     $jwt = createJWT($login, $password);
     return $response->withHeader("Authorization", "Bearer $jwt");
@@ -64,6 +65,30 @@ function filterArrayById($array, $id)
     return current($filtered_array);
 }
 
+$app->post('/api/register', function (Request $request, Response $response) {
+    $body = (array)$request->getParsedBody();
+    $client = createClientFromBody($body);
+    $response->getBody()->write(json_encode($client));
+    return $response;
+});
+
+function createClientFromBody($body): Client {
+    $client = new Client();
+    $client->firstname = $body['firstname'];
+    $client->lastname = $body['lastname'];
+    $client->email = $body['email'];
+    $client->login = $body['login'];
+    $client->password = password_hash($body['password'], PASSWORD_DEFAULT);
+    $client->phone = $body['phone'];
+    $client->locale = $body['locale'];
+    $client->adress = $body['adress'];
+    $client->city = $body['city'];
+    $client->zip = $body['zip'];
+    $client->country = $body['country'];
+    $client->civility = $body['civility'];
+    return $client;
+}
+
 $options = [
     "attribute" => "token",
     "header" => "Authorization",
@@ -72,7 +97,7 @@ $options = [
     "algorithm" => ["HS256"],
     "secret" => JWT_SECRET,
     "path" => ["/api"],
-    "ignore" => ["/api/login"],
+    "ignore" => ["/api/login", "/api/register"],
     "error" => function ($response) {
         $data = array('ERREUR' => 'Connexion', 'ERREUR' => 'JWT Non valide');
         $response = $response->withStatus(401);
